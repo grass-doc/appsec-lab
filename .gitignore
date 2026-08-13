@@ -1,0 +1,13 @@
+# Secrets / local env
+.env
+*.env.local
+
+# Elastic/Docker runtime data (bind-mounted volumes, not source)
+esdata/
+elasticsearch/data/
+crowdsec/data/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.vscode/

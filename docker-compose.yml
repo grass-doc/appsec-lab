@@ -1,0 +1,6 @@
+# AppSec Lab — Phase 0 stub.
+# Services get added phase by phase (target app, nginx, CrowdSec, Elastic, ...);
+# this file's job right now is just to exist and validate cleanly in CI.
+# See PEH/AppSec Lab/Roadmap.md for the build order and PEH/AppSec Lab/Architecture.md for why.
+
+services: {}

@@ -1,0 +1,20 @@
+name: Validate Detection Rules
+on:
+  push:
+    paths:
+      - 'detections/sigma/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'detections/sigma/**'
+jobs:
+  sigma-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install sigma-cli
+        run: pip install sigma-cli pysigma-backend-elasticsearch
+      - name: Validate Sigma rule syntax
+        run: sigma check detections/sigma/
+      - name: Compile to Elastic (fails if a rule doesn't convert cleanly)
+        run: sigma convert -t eql -p ecs_windows detections/sigma/ -O detections/elastic/
