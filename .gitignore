@@ -11,3 +11,6 @@ crowdsec/data/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# nginx runtime logs — generated, not source
+nginx/logs/
