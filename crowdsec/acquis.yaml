@@ -1,0 +1,6 @@
+# Tells the CrowdSec engine which logs to read and how to label them.
+# "type: nginx" picks the nginx log parser so scenarios can actually match request patterns.
+filenames:
+  - /var/log/nginx/access.log
+labels:
+  type: nginx

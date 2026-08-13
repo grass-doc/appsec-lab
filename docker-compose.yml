@@ -22,4 +22,20 @@ services:
       - ./nginx/logs:/var/log/nginx
     depends_on:
       - juice-shop
+      
+  # Phase 3 - CrowdSec
+  crowdsec:
+    image: crowdsecurity/crowdsec
+    container_name: crowdsec
     restart: unless-stopped
+    environment:
+      COLLECTIONS: "crowdsecurity/nginx"
+    volumes:
+      - ./nginx/logs:/var/log/nginx:ro   # reads the same logs Phase 2 already set up
+      - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml:ro
+      - crowdsec-db:/var/lib/crowdsec/data/
+    depends_on:
+      - nginx
+
+volumes:
+  crowdsec-db:
