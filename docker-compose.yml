@@ -22,7 +22,7 @@ services:
       - ./nginx/logs:/var/log/nginx
     depends_on:
       - juice-shop
-      
+
   # Phase 3 - CrowdSec
   crowdsec:
     image: crowdsecurity/crowdsec
